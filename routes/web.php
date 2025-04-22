@@ -9,3 +9,9 @@ Route::get('/', function () {
 
 Route::get('/home', [HomeController::class , 'index']
 );
+
+Route::get('/loop', function () {
+    $car_Types = ['Mercedes' ,  'BMW' , 'Toyota' , 'Audi'];
+    Return view('loop' , compact('car_Types'));
+});
+
