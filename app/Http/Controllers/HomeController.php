@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function index(){
-        return view('home');
+        $myname = 'jehad';
+        $myage = 24;
+        return view('home', compact('myname', 'myage'));
+    
+
+
+
     }
 }

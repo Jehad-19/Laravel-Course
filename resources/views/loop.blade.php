@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>laravel-course</title>
+    <title>Document</title>
 </head>
 <body>
-    <h1>home page {{ $myname }} {{ $myage}}</h1>
-    @if(strlen ($myname) > 3)
-        <h2>My name is too long</h2>
-    @else
-        <h2>My name is too short</h2>
-    @endif
+    <h1> Car types </h1>
+    @foreach ($car_Types as $car_Types )
+    <p> {{ $car_Types}}</p>
+        
+    @endforeach
+    
 </body>
 </html>
