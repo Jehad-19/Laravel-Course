@@ -14,7 +14,7 @@ Route::get('/about', function () {
     return view('content');
 });
 
-Route::get('/product', function () {
+Route::get('/products', function () {
     $products = [
         ['name' => 'laptop' , 'price' => 1500],
         ['name' => 'Headset' , 'price' => 120],
