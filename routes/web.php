@@ -2,23 +2,20 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class , 'index']
-);
+
 
 Route::get('/about', function () {
     return view('content');
 });
 
-Route::get('/products', function () {
-    $products = [
-        ['name' => 'laptop' , 'price' => 1500],
-        ['name' => 'Headset' , 'price' => 120],
-        ['name' => 'Keyboard' , 'price' => 75],
-    ];
-    return view('products' , compact('products'));
-});
+
+Route::get('/products', [ProductController::class , 'index'])->name('products.index');
+Route::get('/create-product', [ProductController::class , 'create'])->name('products.create');
+Route::post('/products', [ProductController::class , 'store'])->name('products.store');
+Route::get('/products/{$id}', [ProductController::class , 'show'])->name('products.show');

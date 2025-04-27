@@ -1,10 +1,10 @@
 @extends('layout.app')
 @section('content')
 <h1>the products</h1>
-<table>
+<table border="1px">
     <tr>
-        <td> Name </td>
-        <td> Price </td>
+        <th> Name </th>
+        <th> Price </th>
     </tr>
         @foreach ($products as $g)
         <tr>
