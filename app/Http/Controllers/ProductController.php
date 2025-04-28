@@ -3,20 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Models\Product;
 class ProductController extends Controller
 {
-    public function show ($id) {
-        return "hello " . $id;
-    }
+    
 
     public function index () {
-        $products = [
-            ['name' => 'laptop' , 'price' => 1500],
-            ['name' => 'Headset' , 'price' => 120],
-            ['name' => 'Keyboard' , 'price' => 75],
-        ];
-        return $products;
+        $products = Product::all();
+        return view('Product.index' , compact('products'));
     }
 
     public function create(){
@@ -28,5 +22,10 @@ class ProductController extends Controller
         $price =  $request->input('price');
         $products = ['name' => $name , 'price' => $price];
         return $products;
+    }
+
+    public function show($id){
+        $product = Product::findorFail($id);
+        return $product;
     }
 }
