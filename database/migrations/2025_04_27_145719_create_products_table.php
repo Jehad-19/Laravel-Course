@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('description');
+            $table->string('category');
+            $table->integer('discount');
             $table->timestamps();
         });
     }
