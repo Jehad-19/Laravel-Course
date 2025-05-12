@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Validator;
@@ -75,3 +76,9 @@ route::post('category' , function(Request $request){
     $category = Category::create($request->all());
     return $category;
 });
+
+
+Route::post('/user/login' , [AuthController::class , 'login' ]);
+Route::post('/user/register' , [AuthController::class , 'register']);
+Route::post('/logout' , [AuthController::class] , 'logout')->middleware('auth:sanctum', 'admin');
+
